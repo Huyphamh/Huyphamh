@@ -26,16 +26,25 @@ for (let a = 0; a < nut.length; a++) {
 }
 autoSlide();
 function autoSlide(){
-    var thoigian=setInterval(function(){
-        var slide = document.querySelector('.ndslide li.active2')
-        var vt = 0;
-       for(var i = 0 ; slide = slide.previousElementSibling ; vt++){}
-       for(var i = 0 ; i < slides.length; i++){
-           slides[i].classList.remove('active2');
-       }
-       if(vt == slides.length - 1){
-           slides[0].classList.add('active2');}
-           else{
-               slides[vt].nextElementSibling.classList.add('active2');}
-   },5000)
+    var thoigian = setInterval(function(){
+        var vtslide = 0;
+        var slidehientai = document.querySelector('.ndslide ul li.active2');
+        for(var vtslide =0; slidehientai=slidehientai.previousElementSibling;vtslide++){}
+        if(vtslide<(slides.length-1)){
+            for(var i=0; i<slides.length;i++){
+                slides[i].classList.remove('active2');
+                nut[i].classList.remove('active2');
+            }
+            slides[vtslide].nextElementSibling.classList.add('active2');
+            nut[vtslide].nextElementSibling.classList.add('active2');
+        }
+        else{
+            for(var  i = 0; i<slides.length;i++){
+                slides[i].classList.remove('active2');
+                nut[i].classList.remove('active2')
+            }
+            slides[0].classList.add('active2');
+            nut[0].classList.add('active2')
+        }
+    },5000)
 }
